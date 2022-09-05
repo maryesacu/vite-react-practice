@@ -1,4 +1,6 @@
 import { useState } from "react"
+import femaleProfile from "./images/femaleProfile.jpg"
+import maleProfile from "./images/maleProfile.jpg"
 
 const Employees = () => {
 
@@ -88,8 +90,21 @@ const Employees = () => {
   }])
 
   return (
-    <main>
-
+    <main className="container">
+      <div className="row">
+        <div className="col-8">
+        {
+        employees.map((employee) => (
+          <div id={employee.id} className="card">
+            <img src={femaleProfile} className="card-image-top" />
+            <div className="card-body">
+              <h5 className="card-title">Full Name: {employee.fullName}</h5>
+            </div>
+          </div>
+        ))
+        }
+        </div>
+      </div>  
     </main>
   )
 
