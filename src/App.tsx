@@ -140,7 +140,7 @@ function App() {
   return (
     <div>
       <Header selectedTeam={selectedTeam}
-        teamMemberCount={[employees].filter((employee: any) => employee.teamName === selectedTeam).length}
+        teamMemberCount={employees.filter((employee: any) => employee.teamName === selectedTeam).length}
       />
       <Employees employees={employees}
         selectedTeam={selectedTeam}
