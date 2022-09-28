@@ -5,10 +5,11 @@ import Employees from './Employees'
 import Footer from './Footer'
 
 function App() {
-
-  const [selectedTeam, setTeam] = useState("TeamB")
-
-  const [employees, setEmployees] = useState( [{
+  //const validate1 = localStorage.getItem('selectedTeam')
+  const [selectedTeam, setTeam] = useState((localStorage.getItem('selectedTeam')) ? localStorage.getItem('selectedTeam') : "TeamB")
+  
+  //const validate2 = localStorage.getItem('employeeList')
+  const [employees, setEmployees] = useState((localStorage.getItem('employeeList')) ? localStorage.getItem('employeeList') : [{
     id: 1,
     fullName: "Bob Jones",
     designation: "JavaScript Developer",
@@ -93,13 +94,13 @@ function App() {
     teamName: "TeamD"
   }])
 
- /*  useEffect (() => {
+  useEffect (() => {
     localStorage.setItem('employeeList', JSON.stringify(employees))
   },[employees])
 
   useEffect (() => {
     localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam))
-  },[selectedTeam]) */
+  },[selectedTeam]) 
 
 
   function handleTeamSelectionChange(event: any)
@@ -133,9 +134,6 @@ function App() {
                                               console.log(transformedEmployees)
     setEmployees(transformedEmployees)
   } */
-
-
-    
 
   return (
     <div>
