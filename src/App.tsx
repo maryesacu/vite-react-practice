@@ -5,98 +5,189 @@ import Employees from './Employees'
 import Footer from './Footer'
 
 function App() {
-  //const validate1 = localStorage.getItem('selectedTeam')
-  const [selectedTeam, setTeam] = useState((localStorage.getItem('selectedTeam')) ? localStorage.getItem('selectedTeam') : "TeamB")
+  const validate1 = localStorage.getItem('selectedTeam')
+  const [selectedTeam, setTeam] = useState( JSON.parse(localStorage.getItem('selectedTeam')??"TeamB"))
   
-  //const validate2 = localStorage.getItem('employeeList')
-  const [employees, setEmployees] = useState((localStorage.getItem('employeeList')) ? localStorage.getItem('employeeList') : [{
-    id: 1,
-    fullName: "Bob Jones",
-    designation: "JavaScript Developer",
-    gender: "male",
-    teamName: "TeamA"
-  },
-  {
-    id: 2,
-    fullName: "Jill Bailey",
-    designation: "Node Developer",
-    gender: "female",
-    teamName: "TeamA"
-  },
-  {
-    id: 3,
-    fullName: "Gail Shepherd",
-    designation: "Java Developer",
-    gender: "female",
-    teamName: "TeamA"
-  },
-  {
-    id: 4,
-    fullName: "Sam Reynolds",
-    designation: "React Developer",
-    gender: "male",
-    teamName: "TeamB"
-  },
-  {
-    id: 5,
-    fullName: "David Henry",
-    designation: "DotNet Developer",
-    gender: "male",
-    teamName: "TeamB"
-  },
-  {
-    id: 6,
-    fullName: "Sarah Blake",
-    designation: "SQL Server DBA",
-    gender: "female",
-    teamName: "TeamB"
-  },
-  {
-    id: 7,
-    fullName: "James Bennet",
-    designation: "Angular Developer",
-    gender: "male",
-    teamName: "TeamC"
-  },
-  {
-    id: 8,
-    fullName: "Jessica Faye",
-    designation: "API Developer",
-    gender: "female",
-    teamName: "TeamC"
-  },
-  {
-    id: 9,
-    fullName: "Lita Stone",
-    designation: "C++ Developer",
-    gender: "female",
-    teamName: "TeamC"
-  },
-  {
-    id: 10,
-    fullName: "Daniel Young",
-    designation: "Python Developer",
-    gender: "male",
-    teamName: "TeamD"
-  },
-  {
-    id: 11,
-    fullName: "Adrian Jacobs",
-    designation: "Vue Developer",
-    gender: "male",
-    teamName: "TeamD"
-  },
-  {
-    id: 12,
-    fullName: "Devin Monroe",
-    designation: "Graphic Designer",
-    gender: "male",
-    teamName: "TeamD"
-  }])
+  const [employees, setEmployees] = useState([] as any[])
 
   useEffect (() => {
     localStorage.setItem('employeeList', JSON.stringify(employees))
   },[employees])
+  useEffect (() => {
+    let empleados = localStorage.getItem('selectedTeam')
+    if(empleados){
+      setEmployees(JSON.parse(empleados))
+    }else{
+      setEmployees([{
+        id: 1,
+        fullName: "Bob Jones",
+        designation: "JavaScript Developer",
+        gender: "male",
+        teamName: "TeamA"
+      },
+      {
+        id: 2,
+        fullName: "Jill Bailey",
+        designation: "Node Developer",
+        gender: "female",
+        teamName: "TeamA"
+      },
+      {
+        id: 3,
+        fullName: "Gail Shepherd",
+        designation: "Java Developer",
+        gender: "female",
+        teamName: "TeamA"
+      },
+      {
+        id: 4,
+        fullName: "Sam Reynolds",
+        designation: "React Developer",
+        gender: "male",
+        teamName: "TeamB"
+      },
+      {
+        id: 5,
+        fullName: "David Henry",
+        designation: "DotNet Developer",
+        gender: "male",
+        teamName: "TeamB"
+      },
+      {
+        id: 6,
+        fullName: "Sarah Blake",
+        designation: "SQL Server DBA",
+        gender: "female",
+        teamName: "TeamB"
+      },
+      {
+        id: 7,
+        fullName: "James Bennet",
+        designation: "Angular Developer",
+        gender: "male",
+        teamName: "TeamC"
+      },
+      {
+        id: 8,
+        fullName: "Jessica Faye",
+        designation: "API Developer",
+        gender: "female",
+        teamName: "TeamC"
+      },
+      {
+        id: 9,
+        fullName: "Lita Stone",
+        designation: "C++ Developer",
+        gender: "female",
+        teamName: "TeamC"
+      },
+      {
+        id: 10,
+        fullName: "Daniel Young",
+        designation: "Python Developer",
+        gender: "male",
+        teamName: "TeamD"
+      },
+      {
+        id: 11,
+        fullName: "Adrian Jacobs",
+        designation: "Vue Developer",
+        gender: "male",
+        teamName: "TeamD"
+      },
+      {
+        id: 12,
+        fullName: "Devin Monroe",
+        designation: "Graphic Designer",
+        gender: "male",
+        teamName: "TeamD"
+      }])
+      localStorage.setItem('employeeList', JSON.stringify([{
+        id: 1,
+        fullName: "Bob Jones",
+        designation: "JavaScript Developer",
+        gender: "male",
+        teamName: "TeamA"
+      },
+      {
+        id: 2,
+        fullName: "Jill Bailey",
+        designation: "Node Developer",
+        gender: "female",
+        teamName: "TeamA"
+      },
+      {
+        id: 3,
+        fullName: "Gail Shepherd",
+        designation: "Java Developer",
+        gender: "female",
+        teamName: "TeamA"
+      },
+      {
+        id: 4,
+        fullName: "Sam Reynolds",
+        designation: "React Developer",
+        gender: "male",
+        teamName: "TeamB"
+      },
+      {
+        id: 5,
+        fullName: "David Henry",
+        designation: "DotNet Developer",
+        gender: "male",
+        teamName: "TeamB"
+      },
+      {
+        id: 6,
+        fullName: "Sarah Blake",
+        designation: "SQL Server DBA",
+        gender: "female",
+        teamName: "TeamB"
+      },
+      {
+        id: 7,
+        fullName: "James Bennet",
+        designation: "Angular Developer",
+        gender: "male",
+        teamName: "TeamC"
+      },
+      {
+        id: 8,
+        fullName: "Jessica Faye",
+        designation: "API Developer",
+        gender: "female",
+        teamName: "TeamC"
+      },
+      {
+        id: 9,
+        fullName: "Lita Stone",
+        designation: "C++ Developer",
+        gender: "female",
+        teamName: "TeamC"
+      },
+      {
+        id: 10,
+        fullName: "Daniel Young",
+        designation: "Python Developer",
+        gender: "male",
+        teamName: "TeamD"
+      },
+      {
+        id: 11,
+        fullName: "Adrian Jacobs",
+        designation: "Vue Developer",
+        gender: "male",
+        teamName: "TeamD"
+      },
+      {
+        id: 12,
+        fullName: "Devin Monroe",
+        designation: "Graphic Designer",
+        gender: "male",
+        teamName: "TeamD"
+      }]))
+    }
+  },[])
 
   useEffect (() => {
     localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam))
@@ -108,14 +199,16 @@ function App() {
     console.log(event.target.value)
     setTeam(event.target.value)
   }
-
+  console.log(employees)
   function handleEmployeeCardClick(event: any)
   {
     console.log(employees)
-    console.log(employees.length) 
-    const transformedEmployees = employees.map((employee : any) => returndata(employee, event))
-    console.log(transformedEmployees)
-    setEmployees(transformedEmployees)
+    if (employees){
+      const transformedEmployees = employees.map((employee : any) => returndata(employee, event))
+    if(transformedEmployees){
+      setEmployees(transformedEmployees)
+    }
+    }
   }
   function returndata(employee: any, event: any) {
     if (employee.id === parseInt(event.id)) {
