@@ -93,13 +93,13 @@ function App() {
     teamName: "TeamD"
   }])
 
- /*  useEffect (() => {
+  useEffect (() => {
     localStorage.setItem('employeeList', JSON.stringify(employees))
   },[employees])
 
   useEffect (() => {
     localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam))
-  },[selectedTeam]) */
+  },[selectedTeam])
 
 
   function handleTeamSelectionChange(event: any)
