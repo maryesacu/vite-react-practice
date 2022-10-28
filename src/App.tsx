@@ -108,7 +108,6 @@ function App() {
     localStorage.setItem('selectedTeam', JSON.stringify(selectedTeam))
   },[selectedTeam])
 
-
   function handleTeamSelectionChange(event: any)
   {
     setTeam(event.target.value)
@@ -127,6 +126,16 @@ function App() {
     return employee
   } 
 
+  function handleEmployeeCardClick(event: any)
+  {
+    console.log('event.currentTarget.id')
+    console.log(event.id)
+    const transformedEmployees = employees.map((employee: any) => employee.id === parseInt(event.id)
+                                              ?(employee.teamName === selectedTeam)?{...employee, teamName: ''}:{...employee,teamName: selectedTeam}
+                                              :employee)
+                                              console.log(transformedEmployees)
+    setEmployees(transformedEmployees)
+  } 
   return (
     <Router>
       <Nav/>

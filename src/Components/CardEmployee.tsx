@@ -10,11 +10,11 @@ interface CardProps {
   teamName: string
 }
 export const CardEmployee = ( {employee, selectedTeam, handleEmployeeCardClick}: any ) => {
-  useEffect(() => {
+/*   useEffect(() => {
 
   
   console.log('a',employee)
-  }, [])
+  }, []) */
 
   const handleClick = () => {
     console.log(employee.teamName)
