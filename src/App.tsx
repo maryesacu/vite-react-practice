@@ -10,11 +10,9 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 function App() {
 
-  const [selectedTeam, setTeam] = useState((JSON.parse(localStorage.getItem('selectedTeam') ?? "")!="") 
-                                            ?JSON.parse(localStorage.getItem('selectedTeam') ?? ""):"TeamB")
+  const [selectedTeam, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam') as string) || "TeamB")
 
-  const [employees, setEmployees] = useState((JSON.parse(localStorage.getItem('employeeList') ?? "")!="") 
-                                            ?JSON.parse(localStorage.getItem('employeeList') ?? ""):
+  const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('employeeList') as string) ||
   [{
     id: 1,
     fullName: "Bob Jones",
